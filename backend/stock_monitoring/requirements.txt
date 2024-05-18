@@ -10,5 +10,8 @@ mongoengine==0.28.2
 # Authentication and environment management
 python-dotenv==1.0.1
 
+# WSGI HTTP Server for UNIX
+gunicorn==20.1.0
+
 # Other necessary dependencies
 certifi==2024.2.2
