@@ -16,7 +16,7 @@ defusedxml==0.8.0rc2
 Deprecated==1.2.14
 dirtyjson==1.0.8
 distro==1.9.0
-Django==5.0.6
+Django==4.1.13
 django-cors-headers==4.3.1
 djangorestframework==3.15.1
 dnspython==2.6.1
@@ -46,6 +46,7 @@ llama-index-core==0.10.30
 llama-parse==0.4.1
 llamaindex-py-client==0.1.18
 marshmallow==3.21.1
+mongoengine==0.28.2
 motor==3.4.0
 multidict==6.0.5
 mypy-extensions==1.0.0
@@ -86,7 +87,7 @@ social-auth-app-django==5.4.1
 social-auth-core==4.5.4
 sortedcontainers==2.4.0
 SQLAlchemy==2.0.29
-sqlparse==0.5.0
+sqlparse==0.2.4
 starlette==0.37.2
 tenacity==8.2.3
 tiktoken==0.6.0
