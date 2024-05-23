@@ -65,6 +65,24 @@ def get_watchlist(request):
     stock_data = [get_stock_data(symbol) for symbol in watchlist.stocks]
     return Response(stock_data, status=status.HTTP_200_OK)
 
+@api_view(['DELETE'])
+def delete_from_watchlist(request, symbol):
+    user_id = request.query_params.get('user_id')
+    if not user_id:
+        return Response({'error': 'User ID is required'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    watchlist = Watchlist.objects(user_id=user_id).first()
+    if not watchlist:
+        return Response({'error': 'Watchlist not found'}, status=status.HTTP_404_NOT_FOUND)
+    
+    if symbol in watchlist.stocks:
+        watchlist.stocks.remove(symbol)
+        watchlist.save()
+        return Response({'message': 'Stock removed from watchlist'}, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return Response({'error': 'Symbol not found in watchlist'}, status=status.HTTP_404_NOT_FOUND)
+
+
 @api_view(['GET'])
 def stock_quote(request):
     symbol = request.query_params.get('symbol')
